@@ -20,8 +20,8 @@ with DAG(
     k8s_task = KubernetesPodOperator(
         namespace="default",  # Change as per your setup
         image="nvcr.io/nvidia/pytorch:25.01-py3",
-        cmds=["/bin/bash", "-c"]
-        arguments=["apt update; pip install mlflow scikit-learn boto3; git clone http://gitea.local/vamsi344/example-mlflow.git && source example-mlflow/.env; python3 example-mlflow/example-mlflow.py;"]
+        cmds=["/bin/bash", "-c"],
+        arguments=["apt update; pip install mlflow scikit-learn boto3; git clone http://gitea.local/vamsi344/example-mlflow.git && source example-mlflow/.env; python3 example-mlflow/example-mlflow.py;"],
         name="airflow-pod-task",
         task_id="run-k8s-pod",
         get_logs=True,
